@@ -116,5 +116,4 @@ async function getPermissionById(req, res) {
     }
 }
 
-
 module.exports = { createPermission, getAllPermission, updatePermission, deletePermission, getPermissionById };

@@ -7,7 +7,7 @@ const {
     updateRolePermission, 
     deleteRolePermission, 
     getRolePermissionById 
-} = require('../controllers/rolePermController');
+} = require('../controllers/RolePermController');
 
 const router = express.Router();
 

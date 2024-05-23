@@ -56,7 +56,7 @@ async function updateRolePermission(req, res) {
         }
     
         const result = await pool.query(
-            'UPDATE role_permission SET role_id = $2, permission_id = $3, updated_at = CURRENT_TIMESTAMP WHERE id = $1 RETURNING *',
+            'UPDATE role_permission SET permission_id = $3, updated_at = CURRENT_TIMESTAMP WHERE id = $1 AND role_id = $2 RETURNING *',
             [id, role_id, permission_id]
         );
     
