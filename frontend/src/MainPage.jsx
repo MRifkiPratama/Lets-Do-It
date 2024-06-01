@@ -14,6 +14,11 @@ function MainPage({ userId, setUserId }) {
         navigate(path);
     };
 
+    const handleRole = (path) => {
+        navigate(path);
+    };
+    
+
     const handleLogout = () => {
         setUserId(null);
         navigate('/');
@@ -24,6 +29,9 @@ function MainPage({ userId, setUserId }) {
             <div style={{ width: '20%', borderRight: '1px solid #ccc', padding: '20px' }}>
                 <button onClick={() => handleNavigation('/manageTask')}>Task List</button>
                 <button onClick={() => handleNavigation('/createTask')}>Create Task</button>
+                <button onClick={() => handleRole('/managePermission')}>Permission</button>
+                <button onClick={() => handleRole('/getRole')}>Role List</button>
+                <button onClick={() => handleRole('/manageUser')}>User</button>
                 <button onClick={handleLogout}>Log Out</button>
             </div>
             <div style={{ width: '80%', padding: '20px' }}>

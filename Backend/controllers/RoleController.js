@@ -75,7 +75,7 @@ async function updateRole(req, res) {
 }
 
 async function deleteRole(req, res) {
-    const { id } = req.body;
+    const { id } = req.params; 
   
     try {
       const result = await pool.query(
@@ -93,6 +93,7 @@ async function deleteRole(req, res) {
       res.status(500).json({ error: "Internal Server Error" });
     }
 }
+
 
 async function getRoleById(req, res) {
     const { id } = req.params;
