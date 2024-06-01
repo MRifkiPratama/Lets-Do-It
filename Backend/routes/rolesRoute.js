@@ -25,7 +25,7 @@ router.put('/:id/update', async (req, res) => {
     res.json(account);
 });
 
-router.delete('/delete', async (req, res) => {
+router.delete('/:id/delete', async (req, res) => {
     const account = await deleteRole(req, res);
     res.json(account);
 });

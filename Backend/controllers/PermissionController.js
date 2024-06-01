@@ -1,12 +1,12 @@
 const pool = require('../db');
 
 async function createPermission(req, res) {
-    const { id, name, description } = req.body;
+    const { name, description } = req.body;
 
     try {
         const result = await pool.query(
-            'INSERT INTO permission (id, name, description) VALUES ($1, $2, $3) RETURNING *',
-            [id, name, description]
+            'INSERT INTO permission (name, description) VALUES ($1, $2) RETURNING *',
+            [name, description]
         );
 
         if (result.rowCount === 0) {
@@ -14,13 +14,13 @@ async function createPermission(req, res) {
         }
 
         const newPermission = result.rows[0];
-
         res.status(200).json(newPermission);
     } catch (error) {
         console.error('Error in permission:', error);
         res.status(500).json({ error: "An error occurred" });
     }
 }
+
 
 async function getAllPermission(req, res) {
     try {
@@ -41,40 +41,73 @@ async function getAllPermission(req, res) {
     }
 };
 
+// async function updatePermission(req, res) {
+//     const { id } = req.params;
+//     const { name, description } = req.body;
+
+//     try {
+//         const rolePermissionCheck = await pool.query(
+//             'SELECT id FROM permission WHERE id = $1',
+//             [id]
+//         );
+    
+//         if (rolePermissionCheck.rowCount === 0) {
+//             return res.status(404).json({ error: "Role Permission not found" });
+//         }
+    
+//         const result = await pool.query(
+//             'UPDATE role_permission SET name = $2, description = $3, updated_at = CURRENT_TIMESTAMP WHERE id = $1 RETURNING *',
+//             [id, name, description]
+//         );
+    
+//         if (result.rowCount === 0) {
+//             return res.status(404).json({ error: "Role not found" });
+//         }
+    
+//         const updatedRole = result.rows[0];
+    
+//         res.status(200).json(updatedRole);
+//     } catch (error) {
+//         console.error('Error in Role Permission Update:', error);
+//         res.status(500).json({ error: "An error occurred" });
+//     }
+// }
+
 async function updatePermission(req, res) {
     const { id } = req.params;
     const { name, description } = req.body;
 
     try {
-        const rolePermissionCheck = await pool.query(
+        const permissionExists = await pool.query(
             'SELECT id FROM permission WHERE id = $1',
             [id]
         );
-    
-        if (rolePermissionCheck.rowCount === 0) {
-            return res.status(404).json({ error: "Role Permission not found" });
+
+        if (permissionExists.rowCount === 0) {
+            return res.status(404).json({ error: "Permission not found" });
         }
-    
+
         const result = await pool.query(
-            'UPDATE role_permission SET name = $2, description = $3, updated_at = CURRENT_TIMESTAMP WHERE id = $1 RETURNING *',
+            'UPDATE permission SET name = $2, description = $3, updated_at = CURRENT_TIMESTAMP WHERE id = $1 RETURNING *',
             [id, name, description]
         );
-    
+
         if (result.rowCount === 0) {
-            return res.status(404).json({ error: "Role not found" });
+            return res.status(404).json({ error: "Failed to update permission" });
         }
-    
-        const updatedRole = result.rows[0];
-    
-        res.status(200).json(updatedRole);
+
+        const updatedPermission = result.rows[0];
+
+        res.status(200).json(updatedPermission);
     } catch (error) {
-        console.error('Error in Role Permission Update:', error);
+        console.error('Error updating permission:', error);
         res.status(500).json({ error: "An error occurred" });
     }
 }
 
+
 async function deletePermission(req, res) {
-    const { id } = req.body;
+    const { id } = req.params; 
   
     try {
       const result = await pool.query(
@@ -93,6 +126,7 @@ async function deletePermission(req, res) {
       res.status(500).json({ error: "Internal Server Error" });
     }
 }
+
 
 async function getPermissionById(req, res) {
     const { id } = req.params;
