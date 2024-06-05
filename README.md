@@ -49,7 +49,8 @@ ERD
 
 
 UML
-![Untitled (3)](https://github.com/SistemBasisData2024/Lets-Do-It/assets/133479361/717392dd-8c4c-4fc7-9e33-25e83214da62)
+![Untitled (4)](https://github.com/SistemBasisData2024/Lets-Do-It/assets/133479361/9bb0c235-6362-43fa-81d5-f459c2606a87)
+
 
 
 
