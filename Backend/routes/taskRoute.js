@@ -1,4 +1,3 @@
-// server/routes/recipes.js
 const express = require('express');
 const {
     createTask,
@@ -12,33 +11,30 @@ const {
 const router = express.Router();
 
 router.post('/:user_id/create', async (req, res) => {
-    const account = await createTask(req, res);
-    res.json(account);
+     await createTask(req, res);
+  
 });
 
-router.put('/:user_id/update', async (req, res) => {
-  const account = await taskUpdate(req, res);
-  res.json(account);
+router.put('/:id/update', async (req, res) => {
+    await taskUpdate(req, res);
 });
 
 router.get('/', async (req, res) => {
-    const users = await getAllTask(req, res);
-    res.json(users);
+    await getAllTask(req, res);
+    
 });
 
-router.get('/findtask/:id', async (req, res) => {
-    const users = await getTaskById(req, res);
-    res.json(users);
+router.get('/:id', async (req, res) => {
+    await getTaskById(req, res);
+    
 });
 
-router.get('/:user_id', async (req, res) => {
-    const users = await getUserTasks(req, res);
-    res.json(users);
+router.get('/user/:user_id', async (req, res) => {
+    await getUserTasks(req, res);
 });
 
-router.delete('/:user_id/delete', async (req, res) => {
-    const users = await deleteTask(req, res);
-    res.json(users);
+router.delete('/user/:user_id/delete', async (req, res) => {
+    await deleteTask(req, res);
 });
 
 

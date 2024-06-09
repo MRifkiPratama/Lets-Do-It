@@ -1,0 +1,99 @@
+.manage-task-page {
+  display: flex;
+  height: 100vh;
+  width:206.5vh;
+}
+
+.content {
+  flex: 1;
+}
+
+.manage-task-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.task-column {
+  flex: 1;
+  background-color: #D9D9D9;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-column h3 {
+  margin-top: 0;
+  color: black;
+}
+
+.task-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-column li {
+  background-color: rgb(76, 156, 93);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.task-actions button {
+  margin-left: 10px;
+}
+
+.actions-addtask {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 60px;
+}
+
+.actions-addtask button {
+  margin-left: 10px;
+}
+
+.actions-back {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 60px;
+}
+
+.actions-back {
+  margin-left: 10px;
+}
+
+.title {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  width: 100%;
+}
+
+.page-title {
+  font-size: 30px;  
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 70px;
+  color: white;
+}

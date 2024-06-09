@@ -1,12 +1,12 @@
 const pool = require('../db');
 
 async function createRole(req, res) {
-    const { name } = req.body;
+    const { role_name } = req.body;
 
     try {
         const result = await pool.query(
-            'INSERT INTO roles (name) VALUES ($1) RETURNING *',
-            [name]
+            'INSERT INTO roles (role_name) VALUES ($1) RETURNING *',
+            [role_name]
         );
 
         if (result.rowCount === 0) {
@@ -43,13 +43,13 @@ async function getAllRoles(req, res) {
 };
 
 async function updateRole(req, res) {
-    const { id } = req.params;
-    const { name } = req.body;
+    const { role_id } = req.params;
+    const { role_name } = req.body;
 
     try {
         const roleCheck = await pool.query(
-            'SELECT id FROM roles WHERE id = $1',
-            [id]
+            'SELECT role_id FROM roles WHERE role_id = $1',
+            [role_id]
         );
     
         if (roleCheck.rowCount === 0) {
@@ -57,8 +57,8 @@ async function updateRole(req, res) {
         }
     
         const result = await pool.query(
-            'UPDATE roles SET name = $2, updated_at = CURRENT_TIMESTAMP WHERE id = $1 RETURNING *',
-            [id, name]
+            'UPDATE roles SET role_name = $2, updated_at = CURRENT_TIMESTAMP WHERE role_id = $1 RETURNING *',
+            [role_id, role_name]
         );
     
         if (result.rowCount === 0) {
@@ -75,16 +75,16 @@ async function updateRole(req, res) {
 }
 
 async function deleteRole(req, res) {
-    const { id } = req.params; 
+    const { role_id } = req.params; 
   
     try {
       const result = await pool.query(
-        'DELETE FROM roles WHERE id = $1 RETURNING *',
-        [id]
+        'DELETE FROM roles WHERE role_id = $1 RETURNING *',
+        [role_id]
       );
   
       if (result.rowCount > 0) {
-        res.status(200).json({ message: "Role deleted", id: id });
+        res.status(200).json({ message: "Role deleted", role_id: role_id });
       } else {
         res.status(404).json({ message: "Role not found" });
       }
@@ -94,28 +94,4 @@ async function deleteRole(req, res) {
     }
 }
 
-
-async function getRoleById(req, res) {
-    const { id } = req.params;
-  
-    try {
-      const result = await pool.query(
-        'SELECT * FROM roles WHERE id = $1',
-        [id]
-      );
-  
-      if (result.rowCount === 0) {
-        return res.status(404).json({ error: "No role was found" });
-      }
-  
-      const role = result.rows;
-  
-      res.status(200).json({ role });
-    } catch (error) {
-      console.error('Error in getRoleById:', error);
-      res.status(500).json({ error: "An error occurred" });
-    }
-}
-
-
-module.exports = { createRole, getAllRoles, updateRole, deleteRole, getRoleById };
+module.exports = { createRole, getAllRoles, updateRole, deleteRole};

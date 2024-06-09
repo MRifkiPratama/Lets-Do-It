@@ -1,0 +1,71 @@
+.manage-permission-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #282828;
+    min-height: 100vh;
+    width: 100vw;
+    color: #fff; /* Add this line */
+}
+
+.main-content h2 {
+    padding-left: 270px;
+}
+
+.main-content {
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
+}
+
+.permission-list {
+    list-style-type: none;
+    margin-right: 100px;
+}
+
+.permission-list li {
+    background-color: #404040;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.permission-list h3 {
+    margin-top: 0;
+}
+
+.permission-list p {
+    margin-bottom: 10px;
+}
+
+.permission-list a {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+    color: #0505f8;
+}
+
+.permission-list a:hover {
+    color: #0056b3;
+}
+
+.main-content h2 {
+    margin-top: 0;
+}
+
+.main-content button {
+    margin-bottom: 20px;
+    background-color: #000;
+    color: white;
+    margin-left: 40px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.main-content button:hover {
+    background-color: #fff;
+    color: #fff;
+}

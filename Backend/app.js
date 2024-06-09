@@ -20,6 +20,7 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}))
 app.use(bodyParser.json());
 
+app.use('/uploads', express.static('uploads'));
 app.use('/users', userRoutes);
 app.use('/task', taskRoute);
 app.use('/role', roleRoute);

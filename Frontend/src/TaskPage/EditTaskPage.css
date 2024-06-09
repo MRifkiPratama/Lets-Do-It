@@ -1,0 +1,84 @@
+.edit-task-page {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 206vh;
+  background-color: #282828;
+}
+
+.edit-task-container {
+    background-color: #a8a8a8;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 500px;
+  color: #ffffff;
+}
+
+
+.edit-task-container h2 {
+    font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    padding-top: 1px;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    
+}
+
+.form-group input,
+.form-group textarea{
+    width: 63.7vh;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.form-group select {
+    width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.actions button {
+    width: 100%;
+  padding: 0.8rem;  
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.actions button:hover {
+    background-color: #ffffff;
+  color: #000;
+}

@@ -1,0 +1,10 @@
+.main-page {
+    display: flex;
+    height: 100vh;
+    padding-left: 35px;
+  }
+
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+  }

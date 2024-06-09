@@ -2,7 +2,7 @@ const pool = require('../db');
 
   async function createTask(req, res) {
     const { user_id } = req.params;
-    const { name, detail, due_date } = req.body;
+    const { name, detail, due_date, status } = req.body;
   
     try {
       const userCheck = await pool.query('SELECT id FROM users WHERE id = $1', [user_id]);
@@ -12,8 +12,8 @@ const pool = require('../db');
       }
 
       const result = await pool.query(
-        'INSERT INTO tasks (user_id, name, detail, due_date) VALUES ($1, $2, $3, $4) RETURNING *',
-        [user_id, name, detail, due_date]
+        'INSERT INTO tasks (user_id, name, detail, due_date, status) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+        [user_id, name, detail, due_date, status]
       );
   
       const newTask = result.rows[0];
@@ -27,19 +27,23 @@ const pool = require('../db');
   }
 
   async function taskUpdate(req, res) {
-    const { user_id } = req.params;
-    const { id, status, due_date } = req.body;
-  
-    try {
-      const userCheck = await pool.query('SELECT id FROM users WHERE id = $1', [user_id]);
+    // const { user_id } = req.params;
+    
+    const { id } = req.params;
+    console.log(req);
+    const { name, detail, due_date, status } = req.body;
+    
 
-      if (userCheck.rowCount === 0) {
-        return res.status(404).json({ error: "User not found" });
-      }
+    try {
+      // const userCheck = await pool.query('SELECT id FROM users WHERE id = $1', [user_id]);
+
+      // if (userCheck.rowCount === 0) {
+      //   return res.status(404).json({ error: "User not found" });
+      // }
 
       const result = await pool.query(
-        'UPDATE tasks SET status = $2, due_date = $3, updated_at = CURRENT_TIMESTAMP WHERE id = $1 AND user_id = $4 RETURNING *',
-        [id, status, due_date, user_id]
+        'UPDATE tasks SET name = $1, detail = $2, due_date = $3, status = $4, updated_at = CURRENT_TIMESTAMP WHERE id = $5 returning *',
+        [name, detail, due_date, status, id]
       );
   
       if (result.rowCount === 0) {
@@ -61,7 +65,7 @@ const pool = require('../db');
         'SELECT * FROM tasks;'
       );
       if (!result) {
-        res.status(404).send("No tasks found");
+        res.status(200).send(" found");
       } else {
         res.send(result.rows);
       }
@@ -79,7 +83,7 @@ const pool = require('../db');
   
     try {
       const result = await pool.query(
-        'SELECT * FROM tasks WHERE id = $1',
+        'SELECT * FROM tasks WHERE user_id = $1',
         [id]
       );
   

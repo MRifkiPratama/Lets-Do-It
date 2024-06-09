@@ -11,29 +11,23 @@ const {
 const router = express.Router();
 
 router.post('/create', async (req, res) => {
-    const account = await createRole(req, res);
-    res.json(account);
+    await createRole(req, res);
+    
 });
 
 router.get('/allroles', async (req, res) => {
-    const account = await getAllRoles(req, res);
-    res.json(account);
+    await getAllRoles(req, res);
+    
 });
 
-router.put('/:id/update', async (req, res) => {
-    const account = await updateRole(req, res);
-    res.json(account);
+router.put('/:role_id/update', async (req, res) => {
+    await updateRole(req, res);
+    
 });
 
-router.delete('/:id/delete', async (req, res) => {
-    const account = await deleteRole(req, res);
-    res.json(account);
+router.delete('/:role_id/delete', async (req, res) => {
+    await deleteRole(req, res);
+    
 });
-
-router.put('/:id', async (req, res) => {
-    const account = await getRoleById(req, res);
-    res.json(account);
-});
-
 
 module.exports = router;

@@ -13,28 +13,26 @@ const {
 const router = express.Router();
 
 router.post('/create', async (req, res) => {
-    const account = await createPermission(req, res);
-    res.json(account);
+   await createPermission(req, res);
+   
 });
 
 router.get('/allpermission', async (req, res) => {
-    const account = await getAllPermission(req, res);
-    res.json(account);
+    await getAllPermission(req, res);
 });
 
 router.put('/:id/update', async (req, res) => {
-    const account = await updatePermission(req, res);
-    res.json(account);
+ await updatePermission(req, res);
 });
 
 router.delete('/:id/delete', async (req, res) => {
-    const account = await deletePermission(req, res);
-    res.json(account);
+   await deletePermission(req, res);
+  
 });
 
 router.get('/:id', async (req, res) => {
-    const account = await getPermissionById(req, res);
-    res.json(account);
+     await getPermissionById(req, res);
+    
 });
 
 

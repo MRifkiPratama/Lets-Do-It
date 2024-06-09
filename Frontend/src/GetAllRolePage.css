@@ -1,0 +1,83 @@
+.get-all-roles-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #282828;
+    min-height: 100vh;
+    width: 212.6vh;
+    color: #fff; /* Add this line */
+}
+
+.get-all-roles-container {
+    background-color: #404040;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    color: #fff; /* Add this line */
+}
+
+.get-all-roles-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #fff; /* Add this line */
+}
+
+.role-list {
+    list-style-type: none;
+    padding: 0;
+    color: #fff; /* Add this line */
+}
+
+.role-list li {
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    color: #fff; /* Add this line */
+}
+
+.role-list li h3 {
+    margin: 0;
+    color: #fff; /* Add this line */
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    color: #fff; /* Add this line */
+}
+
+.actions button {
+    margin: 0 40rem;
+    margin-right: 15px;
+    padding: 0.7rem 1rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.actions button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.role-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    color: #000; /* Add this line */
+}
+
+.role-actions a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.role-actions a:hover {
+    color: #0056b3;
+}
