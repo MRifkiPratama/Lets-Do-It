@@ -51,6 +51,13 @@ ERD
 UML
 ![Untitled (4)](https://github.com/SistemBasisData2024/Lets-Do-It/assets/133479361/9bb0c235-6362-43fa-81d5-f459c2606a87)
 
+Dokumentasi Pengerjaan
+![LINE_ALBUM_Dokum Proyek_240609_1](https://github.com/SistemBasisData2024/Lets-Do-It/assets/133479361/41c14b34-0195-4fed-9a92-f023100dfd91)
+![image](https://github.com/SistemBasisData2024/Lets-Do-It/assets/133479361/0bf3b2ed-fd35-4841-be65-8b79f0989432)
+
+
+
+
 
 
 
